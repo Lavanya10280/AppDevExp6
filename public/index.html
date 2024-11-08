@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookly</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Bookly</h1>
+            <input type="text" placeholder="Search here..." class="search-bar">
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#">Home</a>
+            <a href="#">Featured</a>
+            <a href="#">Arrivals</a>
+            <a href="#">Reviews</a>
+            <a href="#">Blogs</a>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <h2>Up to 75% Off</h2>
+            <p>Get your new favourite book for less!</p>
+            <button class="shop-now">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <span>🚚</span>
+                <p>Free Shipping</p>
+            </div>
+            <div class="feature">
+                <span>🔒</span>
+                <p>Secure Payment</p>
+            </div>
+            <div class="feature">
+                <span>🔄</span>
+                <p>Easy Returns</p>
+            </div>
+            <div class="feature">
+                <span>📞</span>
+                <p>24/7 Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="featured-books">
+        <div class="container">
+            <h2>Featured Books</h2>
+            <div id="book-list" class="book-list">
+                <!-- Books will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Created By Bookly Team | &copy; 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to fetch and display books from the API
+        async function fetchBooks() {
+            try {
+                const response = await fetch('/api/books');
+                const books = await response.json();
+
+                const bookList = document.getElementById('book-list');
+                bookList.innerHTML = ''; // Clear any existing content
+
+                // Loop through each book and add it to the book list
+                books.forEach(book => {
+                    // Log to ensure each property is accessible
+                    console.log('Title:', book.title, 'Price:', book.price, 'Original Price:', book.originalPrice);
+
+                    const bookDiv = document.createElement('div');
+                    bookDiv.className = 'book';
+                    bookDiv.innerHTML = `
+                        <h3>${book.title}</h3>
+                        <p>Author: ${book.author}</p>
+                        <p>Year: ${book.year}</p>
+                        <p>Price: $${book.price} <span class="original-price">$${book.originalPrice}</span></p>
+                        <button class="add-to-cart">Add To Cart</button>
+                    `;
+                    bookList.appendChild(bookDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching books:', error);
+                document.getElementById('book-list').innerHTML = '<p>Error loading books</p>';
+            }
+        }
+
+        // Fetch books when the page loads
+        window.onload = fetchBooks;
+    </script>
+</body>
+</html>

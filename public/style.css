@@ -1,0 +1,172 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #4CAF50;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    color: #fff;
+    font-size: 24px;
+}
+
+.header .search-bar {
+    padding: 8px;
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+}
+
+.header .icons span {
+    font-size: 20px;
+    color: #fff;
+    margin-left: 15px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Banner */
+.banner {
+    background-color: #e0f7fa;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.banner h2 {
+    font-size: 36px;
+    color: #333;
+}
+
+.banner p {
+    color: #777;
+}
+
+.banner .shop-now {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    background-color: #f9f9f9;
+}
+
+.features .feature {
+    text-align: center;
+}
+
+.features .feature span {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Featured Books */
+.featured-books {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.featured-books h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+.book-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.book h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.book p {
+    font-size: 16px;
+    color: #333;
+}
+
+.book .original-price {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.add-to-cart {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
